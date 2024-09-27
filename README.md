@@ -1,4 +1,4 @@
-# How to use this repository
+## What is this repository
 This repository contains code to process stem flux data from summer 2023 to fall 2024 and onwards (with a new file format). Additionally, processing scripts for Yale Meyers Forest 2023 data are here.
 
 ## Where is the data I need to run these scripts
@@ -15,3 +15,30 @@ Here is the break down of the files contained in this folder:
   - Met data from the Fisher met station through 9/1/24 (NOTE: will need to redownload this file once later dates are up to run the September 4/5 data.
 - output
   - Contains the output files from the Summer 2024, Summer 2023, and field_data_monthly processing scripts.
+- monthly_tree_general_info.csv
+    - contains tree constants (species, dbh). Ignore volume column (these are the old volume values)
+ - tree_volumes.csv
+    - Contains calculated tree collar volumes. Volumes were calculated based on the average depth from 4 measured points on each collar.
+
+## What do these scripts do
+- Summer2023
+    - summer23_clean_stemflux_processing.R
+        - Processes the Summer 2023 data. Requires Summer 2023 dataframe, fisher met data, tree volumes, and lgr data (from data2 folder).
+    - functions
+        - contains 2 functions, one to process raw LGR data into one dataframe and one to calculate the fluxes. These are pulled in by the stem flux processing script
+
+- Summer 2024
+    - Same as Summer 2023, except processes the the Summer 2024 csv
+    
+- fielddatamonthly
+    - Same as Summer 2023, except processes the monthly data from fall 2023 to fall 2024 (need fielddatemonthly csv)
+
+- Yale
+    - Same as Summer 2023, except processes the YMF data
+
+- fall2024_onwards
+    - Processing script updated to pull in files from a folder and stitch them together (our new file scheme).
+    - This hasn't been tested on our updated file scheme yet, so it may need some tinkering but I've used this method before with no/few issues.
+ 
+- combine_datasets_add_species.R
+    - Takes dataframes from the 'output' folder (these are the processed stem flux csvs), stitches them together, and adds general info (species, dbh, plot). Outputs final combined dataset.
