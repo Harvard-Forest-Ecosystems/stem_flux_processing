@@ -20,7 +20,20 @@ Here is the break down of the files contained in this folder:
  - tree_volumes.csv
     - Contains calculated tree collar volumes. Volumes were calculated based on the average depth from 4 measured points on each collar.
 - combined_dataset_full.csv
-    - final output from all processing scripts. Contains data from fall 2023 to fall 2024 
+    - final output from all processing scripts. Contains data from fall 2023 to fall 2024
+- HF-MatthesLab/data/stem-CH4-flux/diurnal/diurnal_final
+    - output
+        - output dataframe with processed stem fluxes
+    - LGR2
+        - necessary raw LGR data from the dirunal measurements
+    - fisher_met_09012024.csv
+        - necessary meterological data
+    - diurnal_volumes.csv
+          - calculated volumes for the dirunal chambers
+    - diurnal_updated.csv
+        - diurnal data with some small time updates
+    - diurnal_flux_field_data.xlsx.csv
+        - raw diurnal data  
 
 ## What do these scripts do
 - Summer2023
@@ -39,3 +52,5 @@ Here is the break down of the files contained in this folder:
     - This hasn't been tested on our updated file scheme yet, so it may need some tinkering but I've used this method before with no/few issues.
 - combine_datasets_add_species.R
     - Takes dataframes from the 'output' folder (these are the processed stem flux csvs), stitches them together, and adds general info (species, dbh, plot). Outputs final combined dataset.
+- diurnal
+    - Scripts to process the diurnal data for Melissa. 
