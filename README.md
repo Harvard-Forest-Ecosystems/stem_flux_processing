@@ -19,6 +19,8 @@ Here is the break down of the files contained in this folder:
     - contains tree constants (species, dbh). Ignore volume column (these are the old volume values)
  - tree_volumes.csv
     - Contains calculated tree collar volumes. Volumes were calculated based on the average depth from 4 measured points on each collar.
+- combined_dataset_full.csv
+    - final output from all processing scripts. Contains data from fall 2023 to fall 2024 
 
 ## What do these scripts do
 - Summer2023
