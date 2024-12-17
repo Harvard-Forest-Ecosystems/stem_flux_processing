@@ -12,7 +12,7 @@ library(data.table)
 library(plantecophys)
 
 #set working directory
-setwd("~/Stem_flux/naomi")
+#setwd("~/Stem_flux/naomi")
 
 # Load local functions
 #update this line with your local pathname
@@ -37,10 +37,12 @@ date_time_raw <- NULL
 # Loop through files
 # load each one in and bind to dataframe
 for(i in 1:length(filenames)){
+  temp <- read_excel(filenames[i])%>%
+    subset(select = -c(`Updated Start Time`, `Updated End Time`))
   date_time_raw <-
     bind_rows(
       date_time_raw,
-      read_csv(filenames[i])
+      temp
     )
 }
   
